@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: members_only_production
-  username: members_only
+  username: jguttierrez
   password: <%= ENV['MEMBERS_ONLY_DATABASE_PASSWORD'] %>
