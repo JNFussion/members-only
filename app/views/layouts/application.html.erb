@@ -10,8 +10,17 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if flash[:notice]%>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification is-dange global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     
     <nav class="navbar is-dark">
       <div class="navbar-brand ">
@@ -25,7 +34,8 @@
           <div class="buttons">
             
             <% if user_signed_in? %>
-              <%= link_to "Log out", destroy_user_session, class: "button is-light"%>
+              <%= link_to current_user.name, edit_user_registration_path, class: "button is-light"%>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button is-light"%>
             <% else %>
               <%= link_to "Sign up",new_user_registration_path, class: "button is-primary has-text-weight-bold"%>
               <%= link_to "Log in", new_user_session_path, class: "button is-light"%>
