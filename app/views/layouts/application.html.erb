@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://use.fontawesome.com/releases/v5.15.1/css/all.css"%>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -34,8 +35,8 @@
           <div class="buttons">
             
             <% if user_signed_in? %>
-              <%= link_to current_user.name, edit_user_registration_path, class: "button is-light"%>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button is-light"%>
+              <%= link_to current_user.name, edit_user_registration_path, class: "button is-primary"%>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "button is-white-ter"%>
             <% else %>
               <%= link_to "Sign up",new_user_registration_path, class: "button is-primary has-text-weight-bold"%>
               <%= link_to "Log in", new_user_session_path, class: "button is-light"%>
